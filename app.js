@@ -1,8 +1,13 @@
 'use strict';
 const fs = require('fs');
-const data = fs.readFileSync('data.txt').toString().split('\r\n').filter((value) => value !== '').map((value) => Number(value)).filter((value) => !isNaN(value));
+const data = readFileToArray('data.txt');
 
 console.log(T_EP(data));
+
+function readFileToArray(path)
+{
+	return fs.readFileSync(path).toString().split('\r\n').filter((value) => value !== '').map((value) => Number(value)).filter((value) => !isNaN(value));
+}
 
 function T_EP(data)
 {
